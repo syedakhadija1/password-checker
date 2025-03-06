@@ -247,7 +247,7 @@ if password:
 st.markdown("---")
 st.markdown("""
     <div class='footer'>
-        🔒 Developed with ❤️ using Streamlit | Stay Secure! 🚀<br>
+        🔒 Developed with ❤️ Syeda Khadija Abrar | Stay Secure! 🚀<br>
       
     </div>
 """, unsafe_allow_html=True)
