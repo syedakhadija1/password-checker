@@ -6,7 +6,7 @@ import pyperclip
 
 # Set page config FIRST (must be the first Streamlit command)
 st.set_page_config(
-    page_title="Password Strength Checker",
+    page_title="Password Generator Meter",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
@@ -134,7 +134,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Function to check password strength
-def check_password_strength(password):
+def check_password_meter(password):
     strength = 0
     suggestions = []
 
@@ -191,7 +191,7 @@ def generate_password():
     return password
 
 # Streamlit UI
-st.markdown("<h1 class='animated-heading'>🔐 Password Strength Checker</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='animated-heading'>Password Generator Meter</h1>", unsafe_allow_html=True)
 
 # Animated Subheading
 with st.empty():
@@ -207,13 +207,12 @@ show_password = st.checkbox("👁️ Show Password")
 if show_password:
     st.text_input("", value=password, type="default", key="visible_password", disabled=True)
 
-# Copy to Clipboard
+
 if password:
     if st.button("📋 Copy Password to Clipboard"):
         pyperclip.copy(password)
         st.success("Password copied to clipboard!")
 
-# Generate Password
 if st.button("🎲 Generate Strong Password"):
     generated_password = generate_password()
     st.markdown(f"<div class='generated-password'>{generated_password}</div>", unsafe_allow_html=True)
@@ -221,9 +220,9 @@ if st.button("🎲 Generate Strong Password"):
         pyperclip.copy(generated_password)
         st.success("Generated password copied to clipboard!")
 
-# Check Password Strength
+
 if password:
-    remarks, strength, color, suggestions = check_password_strength(password)
+    remarks, strength, color, suggestions = check_password_meter(password)
 
     # Display Strength
     st.markdown(f"<h3 style='color: #333333; text-align: center;'>Strength: {remarks}</h3>", unsafe_allow_html=True)
